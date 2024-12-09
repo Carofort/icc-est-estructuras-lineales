@@ -1,3 +1,4 @@
+import Controller.MenuController;
 import Materia.Queues.Queue;
 import Materia.Queues.QueueGeneric;
 import Materia.Stacks.Stack;
@@ -10,8 +11,10 @@ public class App {
         //runStackGeneric();
         runQueue();
         //runQueueGeneric();
-    }
+        MenuController menu = new MenuController();
+        menu.showMenu();
 
+    }
     public static void runStack(){
 
         Stack stack = new Stack();
@@ -83,4 +86,6 @@ public class App {
         System.out.println("Peek: " + router.peek());
         router.printQueue();
     }
+
+    
 }
