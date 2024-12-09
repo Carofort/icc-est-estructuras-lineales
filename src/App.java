@@ -2,7 +2,7 @@ import Materia.Queues.Queue;
 import Materia.Queues.QueueGeneric;
 import Materia.Stacks.Stack;
 import Materia.Stacks.StackGeneric;
-import models.Pantalla;
+import Models.Pantalla;
 
 public class App {
     public static void main(String[] args) throws Exception {
