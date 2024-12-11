@@ -8,8 +8,6 @@ public class MenuController {
     private ContactManager contactManager;
     private ConsoleView consoleView;
 
-    ContactManager contactManager2 = new ContactManager();
-
     public MenuController(){
         this.contactManager = new ContactManager();
         this.consoleView = new ConsoleView();
@@ -54,17 +52,24 @@ public class MenuController {
     }
     
     private void findContact() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'findContact'");
+        String name = consoleView.getInput("Enter a name to search: ");
+        Contacto<?, ?> contact = contactManager.findContactByName(name);
+
+        if(contact != null){
+            consoleView.showMessage("Contact found: " + contact);
+        } else {
+            consoleView.showMessage("Contact not found 404");
+        }
     }
     
     private void deleteContact() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'deleteContact'");
+        String name = consoleView.getInput("Enter a name to delete: ");
+        contactManager.deleteContactByName(name);
+        consoleView.showMessage("Contact deleted if it existed");
     }
     
     private void printContact() {
-        contactManager2.toString();
+        contactManager.printList();
     }
 
 }

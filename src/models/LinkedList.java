@@ -15,7 +15,7 @@ public class LinkedList <T> {
             System.out.println(current.getValue() + "->");
             current = current.getNext();
         }
-        System.out.println("END");
+        System.out.println(current.getValue() + "-> END");
     }
 
     public void appendToTail(T value){
