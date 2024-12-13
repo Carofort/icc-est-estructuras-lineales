@@ -1,4 +1,4 @@
-package Models;
+package models;
 
 public class Node <T> {
     private T value;

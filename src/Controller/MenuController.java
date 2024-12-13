@@ -1,6 +1,6 @@
 package Controller;
 
-import Models.Contacto;
+import models.Contacto;
 import View.ConsoleView;
 
 public class MenuController {

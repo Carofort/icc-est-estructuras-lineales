@@ -1,4 +1,4 @@
-package Models;
+package models;
 
 public class Contacto <T, U> {
     private T name;

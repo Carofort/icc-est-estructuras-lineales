@@ -1,7 +1,7 @@
 package Controller;
 
 import Materia.Models.NodeGeneric;
-import Models.*;
+import models.*;
 
 
 public class ContactManager<T> {

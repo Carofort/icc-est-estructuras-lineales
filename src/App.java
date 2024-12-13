@@ -1,20 +1,86 @@
 import Controller.MenuController;
-import Materia.Queues.Queue;
-import Materia.Queues.QueueGeneric;
-import Materia.Stacks.Stack;
-import Materia.Stacks.StackGeneric;
-import Models.Pantalla;
+import Ejercicio_02_sorting.StackSorter;
+import Ejercicio_01_sign.SignValidator;
+import Materia.Queues.*;
+import Materia.Stacks.*;
+import models.*;
+import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) throws Exception {
+        Scanner scanner = new Scanner(System.in);
         //runStack();
         //runStackGeneric();
-        runQueue();
+        //runQueue();
         //runQueueGeneric();
-        MenuController menu = new MenuController();
-        menu.showMenu();
+        //MenuController menu = new MenuController();
+        //menu.showMenu();
+        int option;
+        boolean exit = false;
+        while(!exit){
+            System.out.println("**MENU**");
+            System.out.println("1. Sign Validator");
+            System.out.println("2. Stack Sorter");
+            System.out.println("3. Exit");
+            System.out.println("Select one option: ");
+
+            option = scanner.nextInt();
+            scanner.nextLine();
+
+            switch(option){
+                case 1:
+                    firstExercise();
+                case 2:
+                    secondExercise();
+                case 3:
+                    exit = true;
+                    System.out.println("Exiting.......");
+                    break;
+                default:
+                    System.out.println("Invalid option");
+            }
+        } 
+        
+        scanner.close();
+    }
+
+    public static void firstExercise(){
+        Scanner scanner1 = new Scanner(System.in);
+        SignValidator validator = new SignValidator();
+
+        System.out.println("Enter a String of Characters: ");
+        String input = scanner1.nextLine();
+
+        boolean result = validator.isValid(input);
+        System.out.println("*Input: \"" + input + "\"");
+        System.out.println("*Output: " + result);
+        scanner1.close();
+    } 
+
+    public static void secondExercise(){
+        Scanner scanner2 = new Scanner(System.in);
+        StackGeneric<Integer> stack = new StackGeneric<>();
+
+        System.out.println("Enter the numbers for the Stack (separated by spaces):");
+        String inputStack = scanner2.nextLine();
+
+        for (String num : inputStack.split(" ")) {
+            try {
+                stack.push(Integer.parseInt(num));
+            } catch (NumberFormatException e) {
+                System.out.println("Only integers");
+                scanner2.close();
+                return;
+            }
+        }
+
+        System.out.println("*Input: (tope) " + StackSorter.stackToString(stack));
+        StackSorter.sortStack(stack);
+        System.out.println("*Output: (tope) " + StackSorter.stackToString(stack));
+        scanner2.close();
 
     }
+
     public static void runStack(){
 
         Stack stack = new Stack();
